@@ -33,11 +33,3 @@ pnodes['run_on_localnode'] = {
 }
 
 parallel pnodes
-
-    node('master') {
-        stage("Just echo"){
-            emailext attachLog: true, body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - SUCCESS:
-    
-    Check console output at $BUILD_URL to view the results.''', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'sp.aditya@gmail.com'
-        }
-}
